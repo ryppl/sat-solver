@@ -40,7 +40,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include <inttypes.h>
-#include <endian.h>
+#include <sys/types.h>
 
 #include "sha2.h"
 
@@ -96,6 +96,14 @@
  * <machine/endian.h> where the appropriate definitions are actually
  * made).
  */
+#if !defined(__BYTE_ORDER)
+# if __DARWIN_BYTE_ORDER == __DARWIN_LITTLE_ENDIAN
+#  define __BYTE_ORDER __LITTLE_ENDIAN
+# elif __DARWIN_BYTE_ORDER == __DARWIN_BIG_ENDIAN
+#  define __BYTE_ORDER __BIG_ENDIAN
+# endif
+#endif
+
 #if !defined(__BYTE_ORDER) || (__BYTE_ORDER != __LITTLE_ENDIAN && __BYTE_ORDER != __BIG_ENDIAN)
 #error Define __BYTE_ORDER to be equal to either __LITTLE_ENDIAN or __BIG_ENDIAN
 #endif
