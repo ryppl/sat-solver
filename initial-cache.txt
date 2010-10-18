@@ -1,0 +1,3 @@
+SET( EXPAT_INCLUDE_DIR /opt/local/include CACHE PATH FORCE "where to find expat #includes" )
+
+SET( EXPAT_LIBRARY /opt/local/lib/expat.dylib  CACHE FILEPATH FORCE "the expat library" )
