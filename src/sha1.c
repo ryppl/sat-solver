@@ -78,7 +78,7 @@ A million repetitions of "a"
 
 #include <stdio.h>
 #include <string.h>
-#include <endian.h>
+#include <machine/endian.h>
 #include "sha1.h"
 
 
