@@ -226,7 +226,7 @@ repodata_free_schemahash(Repodata *data)
   data->schemadata = sat_realloc2(data->schemadata, data->schemadatalen, sizeof(Id));
 }
 
-#if 1
+#ifndef HAVE_STRCHRNUL
 char const* strchrnul(char const* str, char x)
 {
     char const* p = strchr(str, x);
