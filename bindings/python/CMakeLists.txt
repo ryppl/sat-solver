@@ -37,6 +37,8 @@ SET(binding_SRCS "${SWIG_OUTPUT}" "${CMAKE_SOURCE_DIR}/ext/repo_rpmdb.c" )
 # Py_True and Py_False are a bit tricky
 ADD_DEFINITIONS( -fno-strict-aliasing )
 
+ADD_DEFINITIONS( -Wno-error )
+
 ADD_LIBRARY( satsolver_python SHARED ${binding_SRCS} )
 # name it '_satsolver.so'
 #  and don't prefix with 'lib'

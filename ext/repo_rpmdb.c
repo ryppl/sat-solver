@@ -22,6 +22,8 @@
 #include <unistd.h>
 #include <assert.h>
 
+struct utimbuf;
+
 #include <rpm/rpmio.h>
 #include <rpm/rpmpgp.h>
 #include <rpm/header.h>
