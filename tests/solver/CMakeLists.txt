@@ -8,7 +8,7 @@ ADD_EXECUTABLE(gimmick ${gimmick_SOURCES})
 TARGET_LINK_LIBRARIES(gimmick satsolver)
 
 
-SET(deptestomatic_SOURCES deptestomatic.c)
+SET(deptestomatic_SOURCES deptestomatic.c ../../common/myfopen.c)
 ADD_EXECUTABLE(deptestomatic ${deptestomatic_SOURCES})
 TARGET_LINK_LIBRARIES(deptestomatic satsolverext satsolver ${EXPAT_LIBRARY} ${ZLIB_LIBRARY})
 

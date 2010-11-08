@@ -16,13 +16,13 @@ TARGET_LINK_LIBRARIES(findfileconflicts satsolverext satsolver ${RPMDB_LIBRARY})
 
 ENDIF ( NOT DEBIAN )
 
-ADD_EXECUTABLE(rpmmd2solv rpmmd2solv.c)
+ADD_EXECUTABLE(rpmmd2solv rpmmd2solv.c ../common/myfopen.c)
 TARGET_LINK_LIBRARIES(rpmmd2solv toolstuff satsolverext satsolver ${EXPAT_LIBRARY} ${ZLIB_LIBRARY})
 
 ADD_EXECUTABLE(helix2solv helix2solv.c)
 TARGET_LINK_LIBRARIES(helix2solv toolstuff satsolverext satsolver ${EXPAT_LIBRARY})
 
-ADD_EXECUTABLE(susetags2solv susetags2solv.c)
+ADD_EXECUTABLE(susetags2solv susetags2solv.c ../common/myfopen.c)
 TARGET_LINK_LIBRARIES(susetags2solv toolstuff satsolverext satsolver ${ZLIB_LIBRARY})
 
 ADD_EXECUTABLE(updateinfoxml2solv updateinfoxml2solv.c)
@@ -34,10 +34,10 @@ TARGET_LINK_LIBRARIES(deltainfoxml2solv toolstuff satsolverext satsolver ${EXPAT
 ADD_EXECUTABLE(repomdxml2solv repomdxml2solv.c)
 TARGET_LINK_LIBRARIES(repomdxml2solv toolstuff satsolverext satsolver ${EXPAT_LIBRARY})
 
-ADD_EXECUTABLE(installcheck installcheck.c)
+ADD_EXECUTABLE(installcheck installcheck.c ../common/myfopen.c)
 TARGET_LINK_LIBRARIES(installcheck satsolverext satsolver ${EXPAT_LIBRARY} ${ZLIB_LIBRARY})
 
-ADD_EXECUTABLE(patchcheck patchcheck.c)
+ADD_EXECUTABLE(patchcheck patchcheck.c ../common/myfopen.c)
 TARGET_LINK_LIBRARIES(patchcheck satsolverext satsolver ${EXPAT_LIBRARY} ${ZLIB_LIBRARY})
 
 ADD_EXECUTABLE(dumpsolv dumpsolv.c )
