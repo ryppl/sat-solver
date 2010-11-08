@@ -89,6 +89,9 @@ endmacro()
 
 define_HAVE_function( strchrnul )
 
+include( TestBigEndian )
+test_big_endian( IS_BIG_ENDIAN )
+
 ADD_DEFINITIONS( -D_FILE_OFFSET_BITS=64 )
 ADD_DEFINITIONS( -DVERSION=\\\"${VERSION}\\\" )
 CONFIGURE_FILE( src/satversion.h.in src/satversion.h )
@@ -164,7 +167,10 @@ SET( DOC_INSTALL_DIR
 #SET (CMAKE_INCLUDE_DIRECTORIES_BEFORE ON)
 INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/ext ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_BINARY_DIR}/src SYSTEM )
 
-INCLUDE_DIRECTORIES( /opt/local/include/rpm/ )
+find_path( RPM_INCLUDE_PATH NAMES rpm/rpmdb.h )
+if ( RPM_INCLUDE_PATH )
+  INCLUDE_DIRECTORIES( SYSTEM ${RPM_INCLUDE_PATH} ${RPM_INCLUDE_PATH}/rpm )
+endif()
 
 ####################################################################
 
