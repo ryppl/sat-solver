@@ -40,6 +40,7 @@ if ( APPLE )
 else()
   FIND_PACKAGE(PerlLibs)
 endif()
+FIND_PACKAGE(Ruby)
 
 IF ( FEDORA )
 MESSAGE(STATUS "Building for Fedora")
