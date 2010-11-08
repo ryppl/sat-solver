@@ -88,6 +88,8 @@ macro( define_HAVE_function function_name )
 endmacro()
 
 define_HAVE_function( strchrnul )
+define_HAVE_function( fopencookie )
+define_HAVE_function( funopen )
 
 include( TestBigEndian )
 test_big_endian( IS_BIG_ENDIAN )

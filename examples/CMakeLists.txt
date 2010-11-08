@@ -1,4 +1,4 @@
-ADD_EXECUTABLE(solv solv.c)
+ADD_EXECUTABLE(solv solv.c ../common/myfopen.c)
 IF ( DEBIAN )
 TARGET_LINK_LIBRARIES(solv satsolverext satsolver ${EXPAT_LIBRARY} ${ZLIB_LIBRARY})
 ELSE ( DEBIAN )
