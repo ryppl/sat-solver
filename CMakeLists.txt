@@ -70,6 +70,18 @@ ENDIF ( NOT DEBIAN )
 SET( PACKAGE "satsolver" )
 SET( VERSION "${LIBSATSOLVER_MAJOR}.${LIBSATSOLVER_MINOR}.${LIBSATSOLVER_PATCH}" )
 
+include( CheckFunctionExists )
+
+macro( define_HAVE_function function_name )
+  string( TOUPPER ${function_name} FUNCTION_NAME )
+  check_function_exists( ${function_name} HAVE_${FUNCTION_NAME} )
+  if ( HAVE_${FUNCTION_NAME} )
+    add_definitions( -DHAVE_${FUNCTION_NAME} )
+  endif()
+endmacro()
+
+define_HAVE_function( strchrnul )
+
 ADD_DEFINITIONS( -D_FILE_OFFSET_BITS=64 )
 ADD_DEFINITIONS( -DVERSION=\\\"${VERSION}\\\" )
 CONFIGURE_FILE( src/satversion.h.in src/satversion.h )
