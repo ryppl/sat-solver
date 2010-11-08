@@ -82,6 +82,9 @@ endmacro()
 
 define_HAVE_function( strchrnul )
 
+include( TestBigEndian )
+test_big_endian( IS_BIG_ENDIAN )
+
 ADD_DEFINITIONS( -D_FILE_OFFSET_BITS=64 )
 ADD_DEFINITIONS( -DVERSION=\\\"${VERSION}\\\" )
 CONFIGURE_FILE( src/satversion.h.in src/satversion.h )
